@@ -1,0 +1,607 @@
+/* --------------------------------------------------------
+--------------------- General Styling ---------------------
+----------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+  --body-font: "Poppins", sans-serif;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 13%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg: #14162b;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+  --btn-color: #2196f3;
+}
+
+.light-mode {
+  --theme-bg-color: rgb(255 255 255 / 31%);
+  --theme-color: #3c3a3a;
+  --inactive-color: #333333;
+  --button-inactive: #3c3a3a;
+  --search-bg: rgb(255 255 255 / 31%);
+  --dropdown-bg: #f7f7f7;
+  --overlay-bg: rgb(255 255 255 / 30%);
+  --dropdown-hover: rgb(236 236 236);
+  --border-color: rgb(255 255 255 / 35%);
+  --popup-bg: rgb(255 255 255);
+  --hover-menu-bg: rgba(255 255 255 / 35%);
+  --scrollbar-bg: rgb(255 253 253 / 57%);
+  --content-title-color: --theme-color;
+  --btn-color: #0d385b;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--body-font);
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* background gradient   */
+  /* linear-gradient(174deg, #2d5cfe 0%, #2d5cfe 56%, #fff 56%, #fff 100%); */
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0.8em;
+  }
+}
+
+/* -------- app: window of mac --------- */
+.app {
+  height: 80vh;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--theme-bg-color);
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .app {
+    width: 80vh;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .app {
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+/* ---- ligth mode ---- */
+
+.app header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  height: 58px;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media screen and (max-width: 576px) {
+  .app header {
+    padding: 0 16px;
+    height: 45px;
+  }
+}
+
+.app header .menu-circle {
+  width: 15px;
+  height: 15px;
+  background-color: #f96057;
+  border-radius: 50%;
+  box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
+  margin-right: 195px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 576px) {
+  .app header .menu-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #f96057;
+    box-shadow: 15px 0 0 0 #f8ce52, 30px 0 0 0 #5fcf65;
+  }
+}
+
+.app header .dark-light {
+  cursor: pointer;
+}
+
+.dark-light svg {
+  width: 24px;
+  flex-shrink: 0;
+  fill: #ffce45;
+  stroke: #ffce45;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 576px) {
+  .dark-light svg {
+    width: 20px;
+  }
+}
+
+.light-mode .dark-light svg {
+  fill: transparent;
+  stroke: var(--theme-color);
+}
+
+/* --------- list-body: contain components of todolist --------- */
+.list-body {
+  padding: 30px;
+}
+
+@media screen and (max-width: 576px) {
+  .list-body {
+    padding: 15px;
+  }
+}
+
+/* --------- input-group: contain input task + button add --------- */
+.input-group {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 576px) {
+  .input-group {
+    height: 35px;
+  }
+}
+
+.input-group input {
+  flex: 1;
+  height: 100%;
+  padding: 12.8px 20px;
+  background-color: var(--search-bg);
+  color: var(--theme-color);
+  border: solid 2px transparent;
+  box-shadow: 0 0 0 2px rgb(134 140 160 / 2%);
+  border-radius: 4px 0 0 4px;
+  transition: 0.5s;
+}
+
+.input-group input:focus {
+  border: solid 2px #2196f3;
+}
+
+.input-group input::placeholder {
+  color: var(--inactive-color);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 576px) {
+  .input-group input::placeholder {
+    font-size: 13px;
+  }
+}
+
+.input-group button {
+  display: inline-block;
+  height: 100%;
+  padding: 10px 25px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: 0.2s;
+
+  background-color: #2196f3;
+  /* ripple effect */
+  background-position: center;
+  transition: background 0.8s;
+}
+
+@media screen and (max-width: 576px) {
+  .input-group button {
+    padding: 10px 15px;
+    font-size: 11px;
+  }
+}
+
+.input-group button:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    center/15000%;
+}
+.input-group button:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* --------- list-tabs: contain tabs (all, complete and incomplete) --------- */
+.list-tabs {
+  display: flex;
+}
+
+.list-tabs li {
+  /* to divde the space equally to tabs */
+  flex: 1;
+}
+
+.list-tabs li a {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  color: var(--inactive-color);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.list-tabs li:hover a {
+  color: var(--theme-color);
+  border-bottom: 1px solid var(--theme-color);
+}
+
+.list-tabs li a.active {
+  color: var(--theme-color);
+  border-bottom: 1px solid var(--theme-color);
+}
+
+/* --------- task-group: is ul contain all tasks(li) --------- */
+.task-group {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--content-bg);
+  cursor: pointer;
+  border-radius: 0 0 14px 14px;
+  /*  */
+  max-height: calc(80vh - (58px + 60px + 40px + 56px));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 576px) {
+  .task-group {
+    max-height: calc(100vh - (45px + 30px + 35px + 53px + 12.8px + 12.8px));
+  }
+}
+
+/* --------- li(task): wrp-drg-task and actions --------- */
+.task-group li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  color: var(--theme-color);
+  border-bottom: 2px solid var(--border-color);
+  transition: 0.3s;
+}
+
+.task-group li:hover {
+  background-color: var(--theme-bg-color);
+}
+
+.task-group li:last-child {
+  border-radius: 0 0 13px 13px;
+}
+
+/* ------- class for js -------- */
+.task-group li.active {
+  border-bottom: 2px solid #2196f3;
+}
+
+.task-group li.dragged {
+  background-color: var(--theme-bg-color);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.5;
+}
+
+/* --------- wrp-drg-task: contain dragger and task --------- */
+.task-group li .wrp-drg-task {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task-group li .wrp-drg-task .dragger {
+  color: var(--inactive-color);
+  opacity: 0;
+  cursor: move;
+  transition: all 0.2s ease;
+}
+
+.task-group li:hover .wrp-drg-task .dragger {
+  opacity: 1;
+}
+
+.task-group li .task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/* --------- label: two span, 1st(custom-checkbox), 2nd(title of task) --------- */
+.task-group li .task label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  transition: 0.3s;
+}
+
+/* --- class for javascript ---- */
+.task-group li .task label.completed {
+  text-decoration: line-through;
+  color: var(--inactive-color);
+}
+
+.task-group li .task label .custom-checkbox {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ccc;
+  display: inline-block;
+}
+
+.task-group li .task label.completed .custom-checkbox {
+  background: #2196f3;
+  border-color: #2196f3;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* --------- actions: contain two icons(spans) 1st(modify), 2nd(delete) --------- */
+.task-group li .actions {
+  display: flex;
+  gap: 15px;
+  color: var(--inactive-color);
+}
+
+.task-group li .actions span {
+  transform: translateX(100px);
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.task-group li:hover .actions span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.task-group li .actions span.fa-pencil:hover {
+  color: #34a1fd;
+}
+
+.task-group li .actions span.fa-trash:hover {
+  color: #fe4444;
+}
+
+/* --- class of javascript --- */
+.task-group li .actions span.fa-pencil.active {
+  display: none;
+}
+
+/*------------------- Customize the scrollbar ------------------------- */
+.task-group::-webkit-scrollbar {
+  width: 10px;
+}
+
+.task-group::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.task-group::-webkit-scrollbar-thumb {
+  background: var(--theme-bg-color);
+  border-radius: 10px;
+}
+
+.task-group::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-color);
+}
+
+/*------------------- Error Alert Notication ------------------------- */
+
+.container-alert {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.alert {
+  position: relative;
+  background: var(--theme-bg-color); /* Use the CSS variable for background */
+  background: #fff; /* Use the CSS variable for background */
+  padding: 20px 40px;
+  /* min-width: 420px; */
+
+  border-radius: 4px;
+  border-left: 8px solid #d32f2f;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  color: var(--theme-color); /* Use the CSS variable for text color */
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .alert {
+    padding: 15px 25px;
+    border-left: 7px solid #d32f2f;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .alert {
+    padding: 10px 20px;
+    border-left: 5px solid #d32f2f;
+    margin-bottom: 3px;
+  }
+}
+
+.alert.show-alert {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.alert.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+.alert.hide {
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+.alert .fa-times-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f44336;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .alert .fa-times-circle {
+    left: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .alert .fa-times-circle {
+    left: 10px;
+    font-size: 25px;
+  }
+}
+
+.alert .msg {
+  padding: 0 20px;
+  font-size: 18px;
+  color: #000;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 992px) {
+  .alert .msg {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .alert .msg {
+    font-size: 13px;
+  }
+}
+
+.alert .close-btn {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f44336;
+  padding: 20px 18px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .alert .close-btn {
+    padding: 13px 12px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .alert .close-btn {
+    padding: 10px 9px;
+  }
+}
+
+.alert .close-btn:hover {
+  background: #d32f2f;
+}
+
+.alert .close-btn .fa {
+  color: #fff;
+  font-size: 22px;
+  line-height: 40px;
+}
+
+@media screen and (max-width: 992px) {
+  .alert .close-btn .fa {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .alert .close-btn .fa {
+    font-size: 18px;
+  }
+}

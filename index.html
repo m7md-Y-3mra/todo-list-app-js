@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome 4.7.0v -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/230x0w.webp" type="image/svg+xml" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="menu-circle"></div>
+        <div class="dark-light" id="dark-light">
+          <svg
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </div>
+      </header>
+      <section class="list-body">
+        <!-- todolist header -->
+        <div class="input-group">
+          <input
+            type="text"
+            autofocus
+            placeholder="Add new..."
+            id="input-task"
+          />
+          <button type="button" id="add-task">
+            <i class="fa fa-plus" id="icon-add-task"></i>
+          </button>
+        </div>
+
+        <!-- todolist tabs -->
+        <ul class="list-tabs">
+          <li>
+            <a href="#all-tab" id="all-tab" class="tab active">All</a>
+          </li>
+          <li>
+            <a href="#completed-tab" id="completed-tab" class="tab"
+              >completed</a
+            >
+          </li>
+          <li>
+            <a href="#incompleted-tab" id="incompleted-tab" class="tab"
+              >incompleted</a
+            >
+          </li>
+        </ul>
+
+        <!-- todolist list -->
+        <ul class="task-group" id="task-group"></ul>
+      </section>
+    </div>
+
+    <!-- Error Alert Notication -->
+    <div class="container-alert" id="container-alert"></div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
