@@ -46,15 +46,13 @@ const editTask = (tasks, taskTitle, newTaskTitle) => {
   return newTasks;
 }
 
-const swappTask = (tasks, taskTitle1, taskTitle2) => {
+const changeTaskIndex = (tasks, taskTitle, targetIndex) => {
+  // index1 => draged, index2 => target
   const newTasks = cloneArray(tasks);
-  const index1 = tasks.indexOf(getTask(newTasks, taskTitle1.trim()));
-  const index2 = tasks.indexOf(getTask(newTasks, taskTitle2.trim()));
-  if (index1 === -1 || index2 === -1) {
-    return newTasks;
-  }
-
-  [newTasks[index1], newTasks[index2]] = [newTasks[index2], newTasks[index1]];
+  const task = getTask(tasks, taskTitle);
+  const indexTask = newTasks.indexOf(task);
+  newTasks.splice(indexTask, 1); // remove the task 
+  newTasks.splice(targetIndex, 0, task); // add the task to target index
   return newTasks;
 }
 
@@ -251,13 +249,16 @@ const handleEnterEditEvent = (taskTitle, taskElm) => {
     playAudio('../music/edit.mp3').play();
     let isBlurEvent = true;
     taskElm.addEventListener('keydown', event => {
-      if (event.keyCode === 13)
+      if (event.keyCode === 13) {
+        isBlurEvent = false;
         handleLeaveEditEvent(taskTitle, taskElm);
-      isBlurEvent = false;
+      }
     });
 
     taskTitleElm.addEventListener('blur', event => {
-      isBlurEvent ? handleLeaveEditEvent(taskTitle, taskElm) : null;
+      if (isBlurEvent) {
+        handleLeaveEditEvent(taskTitle, taskElm)
+      }
     });
 
   } catch (error) {
@@ -301,7 +302,7 @@ const handleDragDropEvent = (event) => {
   const taskGroup = document.getElementById('task-group');
   const targetItem = event.target.closest('li');
 
-  if (dragedItem !== targetItem) {
+  if (dragedItem && dragedItem !== targetItem) {
     const targetIndex = Array.from(taskGroup.children).indexOf(targetItem);
     const dragedIndex = Array.from(taskGroup.children).indexOf(dragedItem);
 
@@ -310,7 +311,7 @@ const handleDragDropEvent = (event) => {
     } else {
       taskGroup.insertBefore(dragedItem, targetItem);
     }
-    managerTasks(swappTask, getAllTask(), dragedItem.textContent.trim(), targetItem.textContent.trim())
+    managerTasks(changeTaskIndex, getAllTask(), dragedItem.textContent.trim(), targetIndex)
     renderFilteredTasks();
   }
 }
