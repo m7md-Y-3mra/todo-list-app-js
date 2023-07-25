@@ -317,7 +317,7 @@ const handleDragDropEvent = (event) => {
 }
 
 const handleDragEndEvent = (event) => {
-  draggedItem = null;
+  dragedItem = null;
   event.target.classList.remove('dragged');
 }
 
