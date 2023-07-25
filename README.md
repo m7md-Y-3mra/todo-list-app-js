@@ -18,7 +18,7 @@ MyApp To-Do List is a simple and elegant to-do list application built using Java
 
 ## Demo
 
-🔗 [Link to the Live Demo]([https://mo-76.github.io/todo-list-app-js/])
+🔗 [Link to the Live Demo](https://mo-76.github.io/todo-list-app-js/)
 
 ## Getting Started
 
