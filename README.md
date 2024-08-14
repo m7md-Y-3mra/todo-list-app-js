@@ -11,6 +11,13 @@ MyApp To-Do List is a simple and elegant to-do list application built using Java
   </a>
 </p>
 
+<div align="center" style="display: flex; justify-content: center; align-items: center; position: relative; width: fit-content;">
+  <a href="https://youtu.be/iYdReiozsCw" target="_blank" style="display: flex; justify-content: center; align-items: center;">
+    <img src="http://img.youtube.com/vi/iYdReiozsCw/0.jpg" alt="Video Thumbnail" style="width:80%; max-width:600px;">
+    <img src="https://img.icons8.com/ios-glyphs/90/000000/play-button-circled.png" alt="Play Button" style="position: absolute; width: 10%; max-width: 60px;">
+  </a>
+</div>
+
 ## Features
 
 - **Add Task:** Easily add new tasks to your to-do list.
