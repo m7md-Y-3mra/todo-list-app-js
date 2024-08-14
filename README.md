@@ -2,15 +2,13 @@
 
 MyApp To-Do List is a simple and elegant to-do list application built using JavaScript. It allows you to stay organized and focused on your tasks, ensuring you never miss a beat.
 
-![App Demo](screenshots/app-demo.gif)
 
+## Demo Video
 <p align="center">
-  <a href="https://youtu.be/iYdReiozsCw" target="_blank"  style="position: relative; display: inline-block;">
-    <img src="http://img.youtube.com/vi/iYdReiozsCw/0.jpg" alt="Video Thumbnail" style="width:60%; max-width:600px; position: relative;">
-    <img src="https://img.icons8.com/ios-glyphs/90/000000/play-button-circled.png" alt="Play Button"   style="width: 10%; max-width: 60px; margin: 0 auto;">
-  </a>
-</p>
-
+    <a href="https://youtu.be/iYdReiozsCw">
+     <img src="https://img.icons8.com/ios-glyphs/90/000000/play-button-circled.png"/>
+     </a>
+ </p>
 
 ## Features
 
