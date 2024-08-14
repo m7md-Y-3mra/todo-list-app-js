@@ -7,7 +7,7 @@ MyApp To-Do List is a simple and elegant to-do list application built using Java
 <p align="center">
   <a href="https://youtu.be/iYdReiozsCw" target="_blank"  style="position: relative; display: inline-block;">
     <img src="http://img.youtube.com/vi/iYdReiozsCw/0.jpg" alt="Video Thumbnail" style="width:60%; max-width:600px; position: relative;">
-    <img src="https://img.icons8.com/ios-glyphs/90/000000/play-button-circled.png" alt="Play Button" style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);  width: 10%; max-width: 60px;">
+    <img src="https://img.icons8.com/ios-glyphs/90/000000/play-button-circled.png" alt="Play Button"   style="width: 10%; max-width: 60px; margin: 0 auto;">
   </a>
 </p>
 
