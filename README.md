@@ -31,5 +31,5 @@ MyApp To-Do List is a simple and elegant to-do list application built using Java
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/myapp-todolist.git
+git clone https://github.com/m7md-Y-3mra/todo-list-app-js.git
 cd myapp-todolist
